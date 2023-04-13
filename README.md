@@ -6,6 +6,10 @@ For the English version, clich here (forthcoming).
 
 El objetivo de este repositorio es explicar todos los pasos necesarios para instalar un servicio de georreferenciación de código abierto en un servidor local y hacerle consultas.
 
+### Requisitos:
+
+- X GB de espacio libre.
+
 
 ### 1) Instalación de Linux
 
