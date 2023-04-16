@@ -1,5 +1,7 @@
 # OpenSourceGeocoding
 
+Authors: Lucas Abbate & Juan Bautista Sosa
+
 For the English version, clich here (forthcoming).
 
 ## Instructivo para instalar y utilizar servidores de geolocalización de código abierto
