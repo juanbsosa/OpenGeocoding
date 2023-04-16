@@ -1,8 +1,10 @@
 # OpenGeocoding
 
-*Authors: Lucas Abbate & Juan Bautista Sosa*
+**Authors:** *Lucas Abbate & Juan Bautista Sosa*
 
-Based on: https://github.com/mediagis/nominatim-docker
+**Acknowledgements:** mostly based on the work done in [ nominatim-docker
+](https://github.com/mediagis/nominatim-docker). Our main contribution are the scripts in Python and R to query the geocoding server.
+
 
 ## Table of Contents
 
