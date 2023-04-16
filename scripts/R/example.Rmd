@@ -1,0 +1,98 @@
+---
+title: "example"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+library(sf)
+library(mapview)
+
+knitr::opts_chunk$set(
+    echo = TRUE,
+    tidy = TRUE,
+    include = TRUE,
+    message = FALSE,
+    warning = FALSE
+    )
+
+path <- dirname(rstudioapi::getSourceEditorContext()$path)
+source(file.path(path, "nominatim_utils.R"))
+
+```
+
+Importar una capa con paradas de colectivos del Municipio de Tres de Febrero
+
+```{r}
+
+url <- "https://geoportal.tresdefebrero.gob.ar/geoserver/ows?service=wfs&version=1.1.0&request=GetFeature&typename=geonode%3Aparadas_municipales"
+
+df_sf <- read_sf(url)
+df_sf <- df_sf[,c("gml_id", "direc", "local", "estado", "the_geom")]
+
+knitr::kable(head(df_sf), format="html") %>%
+    kableExtra::kable_styling()
+
+```
+Eliminar la geometría para utilizar como ejemplo
+
+```{r}
+
+df <- st_drop_geometry(df_sf)
+
+knitr::kable(head(df), format="html") %>%
+    kableExtra::kable_styling()
+
+```
+
+Así se crea la consulta a la API usando la primera fila de la base:
+
+```{r}
+
+request <- get_coordinates_url(country= 'Argentina', state = 'Buenos Aires', 
+                               city = 'Tres de Febrero', street = df$direc[1])
+print(request)
+
+```
+Primer resultado de la consulta en formato JSON
+
+```{r}
+
+print(request_requests_json(url=request$url_prefix, params=request$params))
+
+```
+
+Georreferenciar la primera fila de la base. Devuelve el primer resultado de la consulta
+
+```{r}
+
+get_coordinates(country= 'Argentina', state = 'Buenos Aires', 
+                               city = 'Tres de Febrero', street = df$direc[1])
+
+```
+
+Georreferenciar todas las filas del data frame
+
+```{r}
+
+df <- geocode_df(df, country='Argentina', state='Buenos Aires', city='Tres de Febrero',
+                                full_address_col='direc')
+knitr::kable(head(df), format="html") %>%
+    kableExtra::kable_styling()
+
+```
+
+Convertir a objeto espacial y graficar los puntos geolocalizados.
+
+```{r}
+
+df_sf2 <- st_as_sf(df[!is.na(df$lon_nomi_x),], coords = c("lon_nomi_x", "lat_nomi_y"), crs = 4326)
+
+mapview(df_sf2)
+
+```
+
+
+
+
+

@@ -140,8 +140,8 @@ def geocode_df(df,
     if (street_name_col is not None and street_number_col is None) or (street_name_col is None and street_number_col is not None):
         raise ValueError("Both 'street_name_col' and 'street_number_col' should be provided together, or not provided at all.")
     
-    df['latitude'] = ''
-    df['longitude'] = ''
+    df['lat_nomi_y'] = ''
+    df['lon_nomi_x'] = ''
     df['nomi_type'] = ''
     df['nomi_category'] = ''
 
@@ -163,21 +163,21 @@ def geocode_df(df,
         )
         
         if street == '':
-            df['latitude'].at[idx] = None
-            df['longitude'].at[idx] = None
+            df['lat_nomi_y'].at[idx] = None
+            df['lon_nomi_x'].at[idx] = None
             df['nomi_type'].at[idx] = None
             df['nomi_category'].at[idx] = None
             continue
         
         try:
-            df['latitude'].at[idx] = data['lat']
-            df['longitude'].at[idx] = data['lon']
+            df['lat_nomi_y'].at[idx] = data['lat']
+            df['lon_nomi_x'].at[idx] = data['lon']
             df['nomi_type'].at[idx] = data['type']
             df['nomi_category'].at[idx] = data['class']
             successful_geocodes += 1
         except:
-            df['latitude'].at[idx] = None
-            df['longitude'].at[idx] = None
+            df['lat_nomi_y'].at[idx] = None
+            df['lon_nomi_x'].at[idx] = None
             df['nomi_type'].at[idx] = None
             df['nomi_category'].at[idx] = None
     
@@ -185,9 +185,3 @@ def geocode_df(df,
     print(f"Geocoding success rate: {success_percentage}%")
 
     return df
-
-# data = get_coordinates(country='Argentina', state="Buenos Aires", city="Capital Federal", street="Triunvirato 4331", postalcode="")
-# print(data)
-
-# data = get_coordinates(country='Argentina', postalcode='6660')
-# print(data)
