@@ -1,5 +1,9 @@
 # OpenGeocoding
 
+*Authors: Lucas Abbate & Juan Bautista Sosa*
+
+Based on: https://github.com/mediagis/nominatim-docker
+
 ## Table of Contents
 
 1. [OpenGeocoding (Spanish version)](#opengeocoding-spanish-version)
@@ -14,8 +18,6 @@
 
 
 ## OpenGeocoding (Spanish version)
-
-*Autores: Lucas Abbate & Juan Bautista Sosa*
 
 ### Instructivo para instalar y utilizar servidores de geolocalización de código abierto en Windows
 
@@ -79,13 +81,11 @@ La descarga puede tardar varios minutos. Una vez que termina, el contenedor ya s
 docker ps --filter "status=running"
 ```
 
-¡Listo! Ya podemos empezar a hacer consultas a nuestro servidor, siempre que esté activo. En la carpeta "scripts" de este repositorio les compartimos código para hacerle consultas desde Python o R. ¡A georreferenciar!
+¡Listo! Ya podemos empezar a hacer consultas a nuestro servidor, siempre que esté activo. En la carpeta [scripts](./scripts/) de este repositorio les compartimos código para hacerle consultas desde Python o R. ¡A georreferenciar!
 
 
 
 ## OpenGeocoding (English version)
-
-*Authors: Lucas Abbate & Juan Bautista Sosa*
 
 ### Guide to install and use open source geolocation servers in Windows
 
@@ -146,4 +146,4 @@ The download may take several minutes. Once it is finished, the container should
 docker ps --filter "status=running"
 ```
 
-All done! We can now start making queries to our server, as long as it is active. In the "scripts" folder of this repository we provide youw with code to make queries from Python or R. Let's start geocoding!
+All done! We can now start making queries to our server, as long as it is active. In the [scripts](./scripts/) folder of this repository we provide youw with code to make queries from Python or R. Let's start geocoding!
