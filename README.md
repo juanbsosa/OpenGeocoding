@@ -2,8 +2,7 @@
 
 **Authors:** *Lucas Abbate & Juan Bautista Sosa*
 
-**Acknowledgements:** mostly based on the work done in [ nominatim-docker
-](https://github.com/mediagis/nominatim-docker). Our main contribution are the scripts in Python and R to query the geocoding server.
+**Acknowledgements:** mostly based on the work done in this repository: [nominatim-docker](https://github.com/mediagis/nominatim-docker). Our main contribution are the scripts in Python and R to query the geocoding server, and the instructions in Spanish.
 
 
 ## Table of Contents
@@ -30,9 +29,9 @@ El objetivo de este repositorio es explicar todos los pasos necesarios para inst
 
 Utilizaremos Docker para alojar el servidor.
 
-En primer lugar, tenemos que poder correr Linux en nuestra computadora, ya que lo usaremos como motor backend para procesar y administrar el contenedor de Docker en el cual se alojará nuestro servidor de consulta para georreferenciar direcciones.
+En primer lugar, tenemos que poder correr el sistema operativo Linux en nuestra computadora, ya que lo usaremos como motor backend para procesar y administrar el contenedor de Docker en el cual se alojará nuestro servidor de consulta para georreferenciar direcciones.
 
-En Windows, esto se consigue instalando WSL ("Windows Subsystem for Linux"). Éste es un aplicativo de Windows que nos permite usar herramientas de Linux en una computadora con Windows, con una arquitectura liviana y eficiente.
+En Windows, esto puede conseguirse instalando WSL ("Windows Subsystem for Linux"). Éste es un aplicativo de Windows que nos permite usar herramientas de Linux en una computadora con Windows, con una arquitectura liviana y eficiente.
 
 Para instalar la última versión de WSL en windows, seguir los siguientes pasos:
 1) Presionar las teclas Windows+R para abrir el cuadro de diálogo Ejecutar.
