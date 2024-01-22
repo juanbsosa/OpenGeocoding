@@ -59,8 +59,8 @@ docker run -it --rm `
   -e PBF_URL=https://download.geofabrik.de/south-america/argentina-latest.osm.pbf `
   -e REPLICATION_URL=https://download.geofabrik.de/south-america/argentina-updates/ `
   -e IMPORT_STYLE=extratags `
-  -e IMPORT_WIKIPEDIA=true `
   -p 8080:8080 `
+  -v nominatim-data:/var/lib/postgresql/14/main `
   -v /osm-maps/extras:/nominatim/extras `
   --name nominatim `
   mediagis/nominatim:4.3
@@ -133,8 +133,8 @@ docker run -it --rm `
   -e PBF_URL=https://download.geofabrik.de/south-america/argentina-latest.osm.pbf `
   -e REPLICATION_URL=https://download.geofabrik.de/south-america/argentina-updates/ `
   -e IMPORT_STYLE=extratags `
-  -e IMPORT_WIKIPEDIA=true `
   -p 8080:8080 `
+  -v nominatim-data:/var/lib/postgresql/14/main `
   -v /osm-maps/extras:/nominatim/extras `
   --name nominatim `
   mediagis/nominatim:4.3
