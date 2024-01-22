@@ -1,12 +1,15 @@
 # OpenGeocoding
 
-**Authors:** *Lucas Abbate & Juan Bautista Sosa*
+**Original Authors:** *Lucas Abbate & Juan Bautista Sosa*
 
-**Contributions:** *Federico Savio*
+**Contributions and updates:** *Federico Savio*
 
 **Acknowledgements:** mostly based on the work done in this repository: [nominatim-docker](https://github.com/mediagis/nominatim-docker). Our main contribution are the scripts in Python and R to query the geocoding server, and the instructions in Spanish.
 
+# **ACTUALIZACIÓN IMPORTANTE / IMPORTANT UPDATE**
+Las funciones de geolocalización en R ya se encuentran incorporadas en el paquete de [utilidades3F](https://github.com/fsavio3F/utilidades3F).
 
+The geocoder functions for R language are now included in the [utilidades3F](https://github.com/fsavio3F/utilidades3F) package.
 ## Table of Contents
 
 1. [OpenGeocoding (Spanish version)](#opengeocoding-spanish-version)
