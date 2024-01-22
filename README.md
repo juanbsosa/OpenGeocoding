@@ -61,6 +61,7 @@ docker run -it --rm `
   -e IMPORT_STYLE=extratags `
   -p 8080:8080 `
   -v nominatim-data:/var/lib/postgresql/14/main `
+  -v nominatim-flatnode:/nominatim/flatnode `
   -v /osm-maps/extras:/nominatim/extras `
   --name nominatim `
   mediagis/nominatim:4.3
@@ -94,6 +95,7 @@ docker ps --filter "status=running"
 ```
 
 ¡Listo! Ya podemos empezar a hacer consultas a nuestro servidor, siempre que esté activo. En la carpeta [scripts](./scripts/) de este repositorio les compartimos código para hacerle consultas desde Python o R. ¡A georreferenciar!
+Si el contendeor es cerrado y se necesita volver a utilizar los servicios solo basta con volver a correr el código y nos evita tener que descargar todos los datos nuevamente.
 
 
 
@@ -135,6 +137,7 @@ docker run -it --rm `
   -e IMPORT_STYLE=extratags `
   -p 8080:8080 `
   -v nominatim-data:/var/lib/postgresql/14/main `
+  -v nominatim-flatnode:/nominatim/flatnode `
   -v /osm-maps/extras:/nominatim/extras `
   --name nominatim `
   mediagis/nominatim:4.3
@@ -167,3 +170,4 @@ docker ps --filter "status=running"
 ```
 
 All done! We can now start making queries to our server, as long as it is active. In the [scripts](./scripts/) folder of this repository we provide youw with code to make queries from Python or R. Let's start geocoding!
+If the container is stopped we only need to run again the code without the necessity to download the data again.
