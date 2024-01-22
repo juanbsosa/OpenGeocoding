@@ -2,8 +2,6 @@
 
 **Original Authors:** *Lucas Abbate & Juan Bautista Sosa*
 
-**Contributions and updates:** *Federico Savio*
-
 **Acknowledgements:** mostly based on the work done in this repository: [nominatim-docker](https://github.com/mediagis/nominatim-docker). Our main contribution are the scripts in Python and R to query the geocoding server, and the instructions in Spanish.
 
 # **ACTUALIZACIÓN IMPORTANTE / IMPORTANT UPDATE**
