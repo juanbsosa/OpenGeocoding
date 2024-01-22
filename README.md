@@ -52,7 +52,7 @@ Para instalar la última versión de WSL en windows, seguir los siguientes pasos
 3) Correr el comando:
 
 ```sh
-docker run -it --rm -e PBF_URL=https://download.geofabrik.de/south-america/argentina-latest.osm.pbf -e REPLICATION_URL=https://download.geofabrik.de/south-america/argentina-updates/ -e IMPORT_WIKIPEDIA= TRUE -p 8080:8080 -v /osm-maps/extras:/nominatim/extras --name nominatim mediagis/nominatim:4.2
+docker run -it --rm -e PBF_URL=https://download.geofabrik.de/south-america/argentina-latest.osm.pbf -e REPLICATION_URL=https://download.geofabrik.de/south-america/argentina-updates/ -e IMPORT_STYLE=extratags -e IMPORT_WIKIPEDIA=true -p 8080:8080  -v /osm-maps/extras:/nominatim/extras --name nominatim mediagis/nominatim:4.3
 ```
 
 Explicación:
@@ -118,7 +118,7 @@ To install the latest version of WSL on Windows, follow these steps:
 3) Run the command:
 
 ```sh
-docker run -it --rm -e PBF_URL=https://download.geofabrik.de/south-america/argentina-latest.osm.pbf -e REPLICATION_URL=https://download.geofabrik.de/south-america/argentina-updates/ -p 8080:8080 --name nominatim mediagis/nominatim:4.2
+docker run -it --rm -e PBF_URL=https://download.geofabrik.de/south-america/argentina-latest.osm.pbf -e REPLICATION_URL=https://download.geofabrik.de/south-america/argentina-updates/ -e IMPORT_STYLE=extratags -e IMPORT_WIKIPEDIA=true -p 8080:8080  -v /osm-maps/extras:/nominatim/extras --name nominatim mediagis/nominatim:4.3
 ```
 
 Explanation:
