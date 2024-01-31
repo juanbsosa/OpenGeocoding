@@ -1,10 +1,13 @@
 # OpenGeocoding
 
-**Authors:** *Lucas Abbate & Juan Bautista Sosa*
+**Original Authors:** *Lucas Abbate & Juan Bautista Sosa*
 
 **Acknowledgements:** mostly based on the work done in this repository: [nominatim-docker](https://github.com/mediagis/nominatim-docker). Our main contribution are the scripts in Python and R to query the geocoding server, and the instructions in Spanish.
 
+# **ACTUALIZACIÓN IMPORTANTE / IMPORTANT UPDATE**
+Las funciones de geolocalización en R ya se encuentran incorporadas en el paquete de [utilidades3F](https://github.com/fsavio3F/utilidades3F).
 
+The geocoder functions for R language are now included in the [utilidades3F](https://github.com/fsavio3F/utilidades3F) package.
 ## Table of Contents
 
 1. [OpenGeocoding (Spanish version)](#opengeocoding-spanish-version)
@@ -52,7 +55,16 @@ Para instalar la última versión de WSL en windows, seguir los siguientes pasos
 3) Correr el comando:
 
 ```sh
-docker run -it --rm -e PBF_URL=https://download.geofabrik.de/south-america/argentina-latest.osm.pbf -e REPLICATION_URL=https://download.geofabrik.de/south-america/argentina-updates/ -p 8080:8080 --name nominatim mediagis/nominatim:4.2
+docker run -it --rm `
+  -e PBF_URL=https://download.geofabrik.de/south-america/argentina-latest.osm.pbf `
+  -e REPLICATION_URL=https://download.geofabrik.de/south-america/argentina-updates/ `
+  -e IMPORT_STYLE=extratags `
+  -p 8080:8080 `
+  -v nominatim-data:/var/lib/postgresql/14/main `
+  -v nominatim-flatnode:/nominatim/flatnode `
+  -v /osm-maps/extras:/nominatim/extras `
+  --name nominatim `
+  mediagis/nominatim:4.3
 ```
 
 Explicación:
@@ -83,6 +95,7 @@ docker ps --filter "status=running"
 ```
 
 ¡Listo! Ya podemos empezar a hacer consultas a nuestro servidor, siempre que esté activo. En la carpeta [scripts](./scripts/) de este repositorio les compartimos código para hacerle consultas desde Python o R. ¡A georreferenciar!
+Si el contendeor es cerrado y se necesita volver a utilizar los servicios solo basta con volver a correr el código y nos evita tener que descargar todos los datos nuevamente.
 
 
 
@@ -118,7 +131,16 @@ To install the latest version of WSL on Windows, follow these steps:
 3) Run the command:
 
 ```sh
-docker run -it --rm -e PBF_URL=https://download.geofabrik.de/south-america/argentina-latest.osm.pbf -e REPLICATION_URL=https://download.geofabrik.de/south-america/argentina-updates/ -p 8080:8080 --name nominatim mediagis/nominatim:4.2
+docker run -it --rm `
+  -e PBF_URL=https://download.geofabrik.de/south-america/argentina-latest.osm.pbf `
+  -e REPLICATION_URL=https://download.geofabrik.de/south-america/argentina-updates/ `
+  -e IMPORT_STYLE=extratags `
+  -p 8080:8080 `
+  -v nominatim-data:/var/lib/postgresql/14/main `
+  -v nominatim-flatnode:/nominatim/flatnode `
+  -v /osm-maps/extras:/nominatim/extras `
+  --name nominatim `
+  mediagis/nominatim:4.3
 ```
 
 Explanation:
@@ -148,3 +170,4 @@ docker ps --filter "status=running"
 ```
 
 All done! We can now start making queries to our server, as long as it is active. In the [scripts](./scripts/) folder of this repository we provide youw with code to make queries from Python or R. Let's start geocoding!
+If the container is stopped we only need to run again the code without the necessity to download the data again.
